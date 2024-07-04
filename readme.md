@@ -19,7 +19,6 @@
 * update
 * Delete
   
-* App using the react page for frontend recipe sharing platform
-* Its using the vite+React using the pages..!
+* App using the react page for frontend recipe sharing platform its using the vite+React using the pages..!
   
 This all about the frontend RECIPE SHARING PLATFORM
