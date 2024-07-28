@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, Input, Button, Upload, message } from 'antd'
 import { UploadOutlined } from '@ant-design/icons'
 import axios from 'axios'
+import { apiUrl } from '../utils/api';
 
 function AddRecipe() {
     const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ function AddRecipe() {
             formData.append('media', file.originFileObj)
         });
 
-        axios.post('http://localhost:3000/apiRecipe/recipes', formData, {
+        axios.post(`${apiUrl}/apiRecipe/recipes`, formData, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }

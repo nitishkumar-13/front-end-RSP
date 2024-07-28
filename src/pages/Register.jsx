@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, Input, Button, message, Select } from 'antd'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { apiUrl } from '../utils/api';
 
 function Register() {
     const [loading, setLoading] = useState(false);
@@ -9,7 +10,7 @@ function Register() {
 
     const onFinish = (values) => {
         setLoading(true);
-        axios.post('http://localhost:3000/apiAuth/register', values)
+        axios.post(`${apiUrl}/apiAuth/register`, values)
             .then(response => {
                 message.success('Registration successful');
                 navigate('/login');

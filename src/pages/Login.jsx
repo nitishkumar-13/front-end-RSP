@@ -3,6 +3,7 @@ import { Form, Input, Button, message } from 'antd'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
+import { apiUrl } from '../utils/api'
 
 function Login() {
     const [loading, setLoading] = useState(false);
@@ -11,24 +12,15 @@ function Login() {
 
     const onFinish = async (values) => {
         setLoading(true);
-        // axios.post('http://localhost:3000/apiAuth/login', values)
-        //     .then(response => {
-        //         localStorage.setItem('token', response.data.token);
-        //         message.success('Login successful');
-        //         navigate('/');
-        //     }).catch(error => {
-        //         message.error('Login failed!');
-        //         setLoading(false);
-        //     })
-        try {
-            await login(values);
-            message.success('Login successful!')
-            navigate('/');
-        } catch (error) {
-            message.error('Login failed');
-            console.log(error)
-            setLoading(false);
-        }
+        axios.post(`${apiUrl}/apiAuth/login`, values)
+            .then(response => {
+                localStorage.setItem('token', response.data.token);
+                message.success('Login successful');
+                navigate('/');
+            }).catch(error => {
+                message.error('Login failed!');
+                setLoading(false);
+            })
 
     }
     return (

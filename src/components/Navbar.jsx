@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Dropdown, Layout, Menu, message, Button } from 'antd'
 import axios from 'axios'
 import { AuthContext } from '../context/AuthContext'
+import { apiUrl } from '../utils/api'
 
 const { Header } = Layout;
 
@@ -11,21 +12,21 @@ function Navbar() {
     // const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     const fetchUserDetails = async () => {
-    //         try {
-    //             const response = await axios.get('http://localhost:3000/apiAuth/user/details', {
-    //                 headers: {
-    //                     'Authorization': `Bearer ${localStorage.getItem('token')}`
-    //                 }
-    //             });
-    //             setUser(response.data);
-    //         } catch (error) {
-    //             console.error('Error fetching user details:', error);
-    //         }
-    //     };
-    //     fetchUserDetails();
-    // }, []);
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                const response = await axios.get(`${apiUrl}/apiAuth/user/details`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                setUser(response.data);
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+        fetchUserDetails();
+    }, []);
 
     const handleLogout = () => {
         // localStorage.removeItem('token');
