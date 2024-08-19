@@ -1,23 +1,8 @@
-# Recipe sharing platform
+# React + Vite
 
-- Front end : react js
-- Bootstrap : Css
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# components:
+Currently, two official plugins are available:
 
-- Navbar
-- Details
-- Form
-- List
-
-# Pages:
-
-- AddRecipe
-- Home
-- Login
-- Register
-- update
-- Delete
-- App using the react page for frontend recipe sharing platform its using the vite+React using the pages..!
-
-This all about the front-end RECIPE SHARING PLATFORM
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
