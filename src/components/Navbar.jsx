@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../context/App_Context";
 
 const Navbar = () => {
-  const {isAuthenticated, setisAuthenticated,logOut} = useContext(AppContext)
+  const {isAuthenticated,logOut} = useContext(AppContext)
    
   return (
     <>
@@ -36,10 +36,12 @@ const Navbar = () => {
                 Register
               </Link>
             </>
-          )}
-          <Link to={"/saved"} className="btn btn-light mx-2">
-            Saved
-          </Link>
+          )}{isAuthenticated && (
+            <Link to={"/saved"} className="btn btn-light mx-2">
+              Saved
+            </Link>
+          )
+          }
         </div>
       </div>
     </>
