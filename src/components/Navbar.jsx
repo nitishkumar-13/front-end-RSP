@@ -37,10 +37,6 @@ const Navbar = () => {
               </Link>
             </>
           )}
-
-          <Link to={"/saved"} className="btn btn-light mx-2">
-            Saved
-          </Link>
         </div>
       </div>
     </>
